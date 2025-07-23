@@ -52,7 +52,7 @@ chatForm.addEventListener("submit", async (e) => {
         return;
       }
 
-      await fetch("http://localhost:5000/addReminder", {
+      await fetch("https://ai-reminder-backend.onrender.com/addReminder", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...reminder, email })
@@ -65,7 +65,7 @@ chatForm.addEventListener("submit", async (e) => {
 
   // 👉 Regular AI chat call
   try {
-    const res = await fetch("http://localhost:5000/chat", {
+    const res = await fetch("https://ai-reminder-backend.onrender.com/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message }),
@@ -93,7 +93,7 @@ reminderForm.addEventListener("submit", async (e) => {
   const desc = document.getElementById("desc").value;
   const datetime = document.getElementById("datetime").value;
 
-  const res = await fetch("http://localhost:5000/addReminder", {
+  const res = await fetch("https://ai-reminder-backend.onrender.com/addReminder", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, title, desc, datetime }),
